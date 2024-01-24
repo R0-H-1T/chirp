@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.*;
 
+import static chatapplication.MulticastClient.name;
+
 public class Menu extends JFrame implements ActionListener
 {
   private JTextField usernameField;
@@ -108,12 +110,17 @@ public class Menu extends JFrame implements ActionListener
 
         if (validateLogin (inputUsername, String.valueOf (inputPassword)))
           {
+
             errorMessageLabel.setForeground (Color.GREEN);
             errorMessageLabel.setText ("Login Successful!");
 
             this.setVisible (false);
+            name = inputUsername;
             java.awt.EventQueue.invokeLater (new Runnable () {
-              public void run () { new ChatApp ().setVisible (true); }
+              public void run ()
+              {
+                new ChatApp (inputUsername).setVisible (true);
+              }
             });
           }
         else

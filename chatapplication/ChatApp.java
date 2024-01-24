@@ -1,10 +1,23 @@
 package chatapplication;
 
+import static chatapplication.MulticastClient.name;
+
 import java.awt.Color;
 
 public class ChatApp extends javax.swing.JFrame
 {
-  static String name;
+  // static String name;
+
+  public ChatApp (String name)
+  {
+    name = name;
+    // System.out.println (ChatApp.name);
+    this.setTitle ("Chirp");
+
+    this.setUndecorated (true);
+    initComponents ();
+    this.setLocationRelativeTo (null);
+  }
 
   public ChatApp ()
   {
